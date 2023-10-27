@@ -22,6 +22,9 @@ class HomePage {
   static const x = '$homePath/x.png';
   static const yt = '$homePath/Youtube.png';
   static const ytVideo = '$homePath/yt-video.png';
+  static const drawer = '$homePath/drawer.png';
+  static const timer = '$homePath/timer.png';
+  static const bell = '$homePath/bell.png';
 }
 
 class Menu {
