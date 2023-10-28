@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class RecommendedText extends StatelessWidget {
@@ -24,7 +25,8 @@ class RecommendedText extends StatelessWidget {
           Container().w(7),
           Text(
             text,
-            style: TextStyle(color: Colors.black, fontSize: fontSize!),
+            style: GoogleFonts.notoSansDevanagari(
+                color: Colors.black, fontSize: fontSize),
           )
         ],
       ),

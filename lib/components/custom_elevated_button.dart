@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class CustomElevatedButton extends StatelessWidget {
@@ -44,10 +45,8 @@ class CustomElevatedButton extends StatelessWidget {
               .w(imageHeight), // Adjust the image size as needed
           Text(
             buttonText,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: fontSize, // Adjust the font size as needed
-            ),
+            style: GoogleFonts.notoSansDevanagari(
+                color: Colors.white, fontSize: fontSize),
           ),
         ],
       ),

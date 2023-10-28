@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trando_assign/views/my_wallet.dart';
+import 'package:trando_assign/views/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
           // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           // useMaterial3: true,
           ),
-      home: const MyWalletScreen(),
+      home: const Home(),
     );
   }
 }

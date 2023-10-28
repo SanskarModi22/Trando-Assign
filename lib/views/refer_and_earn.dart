@@ -31,7 +31,12 @@ class ReferAndEarn extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 3,
         automaticallyImplyLeading: true,
-        title: "Refer & Earn".text.black.make(),
+        title: "Refer & Earn"
+            .text
+            .textStyle(GoogleFonts.notoSansDevanagari())
+            .black
+            .semiBold
+            .make(),
       ),
       body: SingleChildScrollView(
           child: Column(
@@ -57,30 +62,35 @@ class ReferAndEarn extends StatelessWidget {
                 SizedBox(
                   width: wid * 0.5,
                   child: RichText(
-                    text: const TextSpan(
-                      style: TextStyle(color: Colors.black, fontSize: 16),
+                    text: TextSpan(
+                      style: const TextStyle(color: Colors.black, fontSize: 16),
                       children: <TextSpan>[
                         TextSpan(
                             text: 'Earn Cash ',
-                            style: TextStyle(fontWeight: FontWeight.bold)),
+                            style: GoogleFonts.notoSansDevanagari(
+                                fontWeight: FontWeight.bold)),
                         TextSpan(
                           text: 'upto ',
+                          style: GoogleFonts.notoSansDevanagari(),
                         ),
                         TextSpan(
                           text: '₹10000 ',
-                          style: TextStyle(
-                            color: Colors.purple,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: GoogleFonts.notoSansDevanagari(
+                              color: Colors.purple,
+                              fontWeight: FontWeight.bold),
                         ),
                         TextSpan(
                           text: 'in your back account for ',
+                          style: GoogleFonts.notoSansDevanagari(),
                         ),
                         TextSpan(
-                            text: 'Every Friend ',
-                            style: TextStyle(fontWeight: FontWeight.bold)),
+                          text: 'Every Friend ',
+                          style: GoogleFonts.notoSansDevanagari(
+                              fontWeight: FontWeight.bold),
+                        ),
                         TextSpan(
                           text: 'you refer ',
+                          style: GoogleFonts.notoSansDevanagari(),
                         ),
                       ],
                     ),
@@ -121,7 +131,13 @@ class ReferAndEarn extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      "Total Rewards Earn \n ₹0".text.black.lg.semiBold.make(),
+                      "Total Rewards Earn \n ₹0"
+                          .text
+                          .black
+                          .lg
+                          .textStyle(GoogleFonts.notoSansDevanagari())
+                          .semiBold
+                          .make(),
                       const RoundedButton(
                         text: "Redeem Now",
                         w: 100,
@@ -207,6 +223,7 @@ class ReferAndEarn extends StatelessWidget {
                       .text
                       .color(const Color(0xbf9603f2))
                       .bold
+                      .textStyle(GoogleFonts.notoSansDevanagari())
                       .lg
                       .make(),
                 ).pOnly(left: 10),
@@ -220,36 +237,38 @@ class ReferAndEarn extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         RichText(
-                          text: const TextSpan(
-                            style: TextStyle(
+                          text: TextSpan(
+                            style: GoogleFonts.notoSansDevanagari(
                               color: Colors.black,
                               fontSize: 15,
                             ),
                             children: <TextSpan>[
                               TextSpan(
-                                  text: 'Get ₹1000',
-                                  style:
-                                      TextStyle(fontWeight: FontWeight.bold)),
-                              TextSpan(text: ' Cash'),
+                                text: 'Get ₹1000',
+                                style: GoogleFonts.notoSansDevanagari(
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              const TextSpan(
+                                text: ' Cash',
+                              ),
                             ],
                           ),
                         ),
                         Container().h(5),
                         RichText(
-                          text: const TextSpan(
-                            style: TextStyle(
+                          text: TextSpan(
+                            style: GoogleFonts.notoSansDevanagari(
                               color: Colors.black,
-                              fontSize: 15,
+                              fontSize: 14,
                             ),
                             children: <TextSpan>[
-                              TextSpan(text: 'If your friend purchases'),
+                              const TextSpan(text: 'If your friend purchases'),
                               TextSpan(
                                 text:
                                     ' Offline/Online SD \n Campus Courses 2023-24',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xbf9603f2),
-                                ),
+                                style: GoogleFonts.notoSansDevanagari(
+                                    color: Colors.purple,
+                                    fontWeight: FontWeight.bold),
                               )
                             ],
                           ),
@@ -267,7 +286,11 @@ class ReferAndEarn extends StatelessWidget {
                   w: wid * 0.85,
                   h: 35,
                 ),
-                "Terms & Conditions".text.xs.make()
+                "Terms & Conditions"
+                    .text
+                    .xs
+                    .textStyle(GoogleFonts.notoSansDevanagari())
+                    .make()
               ],
             ),
           ),
@@ -279,22 +302,28 @@ class ReferAndEarn extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  "How it Works?".text.black.semiBold.lg.make(),
+                  "How it Works?"
+                      .text
+                      .black
+                      .semiBold
+                      .textStyle(GoogleFonts.notoSansDevanagari())
+                      .lg
+                      .make(),
                   Container().h(5),
                   const RecommendedText(
                       image: ReferEarn.campaign,
-                      fontSize: 14,
+                      fontSize: 13,
                       imageSize: 20,
                       text:
                           "Share your referral code or link with your friends."),
                   const RecommendedText(
-                      fontSize: 14,
+                      fontSize: 13,
                       imageSize: 20,
                       image: ReferEarn.group,
                       text: "Friends sign-up with your link or referral code."),
                   const RecommendedText(
                       image: Menu.referEarn,
-                      fontSize: 14,
+                      fontSize: 13,
                       imageSize: 20,
                       text:
                           "When your friend makes a purchase, you get \n ₹1000 Paytm cashback for SD Campus. Your \n friends to get 10%  discount on  any purchase \n of SD Campus.")

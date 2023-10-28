@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class FilledButtonWidget extends StatelessWidget {
@@ -24,6 +25,9 @@ class FilledButtonWidget extends StatelessWidget {
           ),
           minimumSize: Size(w!, h!),
         ),
-        child: text.text.white.xs.make());
+        child: text.text.white
+            .textStyle(GoogleFonts.notoSansDevanagari())
+            .xs
+            .make());
   }
 }

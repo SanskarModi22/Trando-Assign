@@ -60,11 +60,12 @@ class MyWalletScreen extends StatelessWidget {
                                 color: Colors.black, fontSize: 16),
                             children: <TextSpan>[
                               TextSpan(
-                                  text: '0.00 Point',
-                                  style: GoogleFonts.notoSansDevanagari(
-                                      color: Colors.purple,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold)),
+                                text: '0.00 Point',
+                                style: GoogleFonts.notoSansDevanagari(
+                                    color: Colors.purple,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold),
+                              ),
                             ],
                           ),
                         ),
