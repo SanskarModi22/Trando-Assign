@@ -1,7 +1,10 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:trando_assign/components/custom_elevated_button.dart';
 import 'package:trando_assign/components/grid_view.dart';
+import 'package:trando_assign/components/recommended_text.dart';
+import 'package:trando_assign/components/rounded_button.dart';
 import 'package:trando_assign/constants/assets.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -251,50 +254,13 @@ class Home extends StatelessWidget {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
-                                        ElevatedButton(
-                                            onPressed: () {},
-                                            style: ElevatedButton.styleFrom(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              backgroundColor: const Color(
-                                                  0xbf9603f2), // Set the background color
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(20.0),
-                                                // Adjust the radius to make it rounded
-                                              ),
-                                              minimumSize: const Size(70, 25),
-                                            ),
-                                            child: "View Details"
-                                                .text
-                                                .white
-                                                .xs
-                                                .make()),
+                                        const FilledButton(),
                                         Container().w(5),
-                                        ElevatedButton(
-                                            onPressed: () {},
-                                            style: ElevatedButton.styleFrom(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              backgroundColor: Colors.white,
-                                              // Set the background color
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(20.0),
-                                                // Adjust the radius to make it rounded
-                                              ),
-                                              minimumSize: const Size(70, 25),
-                                              side: const BorderSide(
-                                                color: Color(
-                                                    0xbf9603f2), // Set the border color to purple
-                                                width: 2.0,
-                                              ),
-                                            ),
-                                            child: "Buy Now"
-                                                .text
-                                                .color(const Color(0xbf9603f2))
-                                                .xs
-                                                .make()),
+                                        const RoundedButton(
+                                          h: 25,
+                                          w: 70,
+                                          text: "Buy Now",
+                                        ),
                                         Container().w(10),
                                         Image.asset(HomePage.share).w(30)
                                       ],
@@ -307,28 +273,11 @@ class Home extends StatelessWidget {
                         },
                       ),
                     ),
-                    ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.all(8.0),
-                          backgroundColor: Colors.white,
-                          // Set the background color
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                            // Adjust the radius to make it rounded
-                          ),
-                          minimumSize: Size(wid * 0.9, 40),
-                          side: const BorderSide(
-                            color: Color(
-                                0xbf9603f2), // Set the border color to purple
-                            width: 2.0,
-                          ),
-                        ),
-                        child: "Explore More"
-                            .text
-                            .color(const Color(0xbf9603f2))
-                            .xs
-                            .make()),
+                    RoundedButton(
+                      h: 40,
+                      w: wid * 0.9,
+                      text: "Explore More",
+                    ),
                   ],
                 ),
               ),
@@ -356,26 +305,17 @@ class Home extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            ElevatedButton(
-                                onPressed: () {},
-                                style: ElevatedButton.styleFrom(
-                                  padding: const EdgeInsets.all(8.0),
-                                  backgroundColor: const Color(
-                                      0xbf9603f2), // Set the background color
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20.0),
-                                    // Adjust the radius to make it rounded
-                                  ),
-                                  minimumSize: Size(wid * 0.55, 30),
-                                ),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Image.asset(HomePage.gift).w(wid * 0.08),
-                                    "  REFER AND EARN".text.white.lg.make(),
-                                  ],
-                                )),
+                            CustomElevatedButton(
+                              buttonText: "  REFER AND EARN",
+                              imagePath: HomePage.gift,
+                              onPressed: () {},
+                              borderRadius: 20,
+                              buttonColor: const Color(0xbf9603f2),
+                              buttonHeight: 30,
+                              buttonWidth: wid * 0.55,
+                              fontSize: 18,
+                              imageHeight: wid * 0.08,
+                            ),
                             Container().h(10),
                             "Learn Together. Earn Together"
                                 .text
@@ -452,25 +392,16 @@ class Home extends StatelessWidget {
                         ),
                       ),
                     ),
-                    ElevatedButton(
+                    CustomElevatedButton(
+                      buttonText: "  Invite Your Friends",
+                      imagePath: ReferEarn.whatsapp,
                       onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.all(8.0),
-                        backgroundColor:
-                            const Color(0xbf9603f2), // Set the background color
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0),
-                          // Adjust the radius to make it rounded
-                        ),
-                        minimumSize: Size(wid * 0.4, 35),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Image.asset(ReferEarn.whatsapp).w(wid * 0.04),
-                          "  Invite Your Friends".text.white.sm.make(),
-                        ],
-                      ),
+                      borderRadius: 20,
+                      buttonColor: const Color(0xbf9603f2),
+                      buttonHeight: 35,
+                      buttonWidth: wid * 0.4,
+                      fontSize: 14,
+                      imageHeight: wid * 0.04,
                     ),
                     Image.asset(HomePage.share).w(30)
                   ],
@@ -535,33 +466,6 @@ class Home extends StatelessWidget {
   }
 }
 
-class RecommendedText extends StatelessWidget {
-  const RecommendedText({
-    super.key,
-    required this.image,
-    required this.text,
-  });
-  final String image;
-  final String text;
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 3),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Image.asset(image).w(15),
-          Container().w(7),
-          text.text
-              .textStyle(GoogleFonts.notoSansDevanagari(color: Colors.black))
-              .xs
-              .make()
-        ],
-      ),
-    );
-  }
-}
-
 class Shortcuts extends StatelessWidget {
   const Shortcuts({
     super.key,
@@ -587,5 +491,27 @@ class Shortcuts extends StatelessWidget {
               .make()
       ],
     );
+  }
+}
+
+class FilledButton extends StatelessWidget {
+  const FilledButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        onPressed: () {},
+        style: ElevatedButton.styleFrom(
+          padding: const EdgeInsets.all(8.0),
+          backgroundColor: const Color(0xbf9603f2), // Set the background color
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0),
+            // Adjust the radius to make it rounded
+          ),
+          minimumSize: const Size(70, 25),
+        ),
+        child: "View Details".text.white.xs.make());
   }
 }
