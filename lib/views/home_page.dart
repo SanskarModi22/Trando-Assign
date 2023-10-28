@@ -1,11 +1,24 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:trando_assign/constants/assets.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var wid = MediaQuery.of(context).size.width;
+    var hei = MediaQuery.of(context).size.height;
+    List<String> topics = [
+      "Delhi Police",
+      "Indian Economy",
+      "Science and \n Environment",
+      "     Indian \n Geography",
+      "Indian History",
+      "  Polity and \n Governance"
+    ];
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color.fromRGBO(245, 245, 245, 1),
@@ -13,6 +26,48 @@ class Home extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 3,
+          actions: [
+            Container(
+              margin: const EdgeInsets.all(10),
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: const Color(0x199d00ff),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Image.asset(
+                    HomePage.timer,
+                  ).w(15),
+                  Container().w(10),
+                  "Timer"
+                      .text
+                      .color(Colors.black)
+                      .textStyle(
+                        GoogleFonts.notoSansDevanagari(
+                          fontWeight: FontWeight.w500,
+                        ),
+                      )
+                      .make()
+                ],
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.all(10),
+              width: 30,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: const Color(0x199d00ff),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Image.asset(
+                  HomePage.bell,
+                ).w(10),
+              ),
+            ),
+          ],
           leading: Builder(
             builder: (context) => IconButton(
               icon: const ImageIcon(AssetImage(HomePage.drawer),
@@ -21,7 +76,556 @@ class Home extends StatelessWidget {
             ),
           ),
         ),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container().h(10),
+              Container(
+                child: Image.asset(
+                  HomePage.delhiPolice,
+                ),
+              )
+                  .w(
+                    wid * 0.95,
+                  )
+                  .h24(context),
+              Container().h(10),
+              Container(
+                height: hei * 0.11,
+                width: wid,
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                ),
+                child: const Align(
+                  alignment: Alignment.center,
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 8),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Shortcuts(
+                            image: HomePage.dailyLive, title: "Daily Live"),
+                        Shortcuts(
+                            image: HomePage.dailyNews, title: "Daily News"),
+                        Shortcuts(image: HomePage.syllabus, title: "Syllabus"),
+                        Shortcuts(
+                            image: HomePage.ytVideo,
+                            title: "Youtube\n   Video"),
+                        Shortcuts(image: HomePage.pyq, title: "PYQs"),
+                        Shortcuts(image: HomePage.ncert, title: "NCERT Notes"),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Container().h(10),
+              Container(
+                padding: const EdgeInsets.all(8),
+                width: wid * 0.95,
+                height: hei * 0.3,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: const Color(0x269d00ff),
+                ),
+                child: Center(
+                  child: GridView.builder(
+                      physics: const NeverScrollableScrollPhysics(),
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3, // Number of columns in the grid
+                        crossAxisSpacing:
+                            10.0, // Horizontal spacing between grid items
+                        mainAxisSpacing:
+                            5.0, // Vertical spacing between grid items
+                      ),
+                      itemCount: 6,
+                      itemBuilder: (BuildContext context, index) {
+                        return Container(
+                          // width: wid * 0.3,
+                          // height: hei * 0.25,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Image.asset(
+                                HomePage.delhiPolice,
+                                width: wid * 0.27,
+                              ),
+                              Text(topics[index],
+                                  style: const TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                  )),
+                            ],
+                          ),
+                        );
+                      }),
+                ),
+              ),
+              Container().h(10),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: "Recommeded For You"
+                    .text
+                    .xl
+                    .textStyle(GoogleFonts.notoSansDevanagari(
+                      fontWeight: FontWeight.w500,
+                    ))
+                    .make(),
+              ).pOnly(
+                left: 7,
+              ),
+              Container().h(10),
+              Container(
+                width: wid * 0.95,
+                height: hei * 0.8,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: const Color(0x26f4b44b),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: wid * 0.95,
+                      height: hei * 0.7,
+                      child: ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: 3,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            padding: const EdgeInsets.all(6),
+                            margin: const EdgeInsets.all(6),
+                            height: hei * 0.2,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                color: Colors.white),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Image.asset(HomePage.delhiPolice)
+                                        .w(wid * 0.33)
+                                        .h(hei * 0.1),
+                                    Container().h(14),
+                                    Row(
+                                      children: [
+                                        "₹1,999"
+                                            .text
+                                            .purple500
+                                            .textStyle(
+                                              GoogleFonts.notoSansDevanagari(
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            )
+                                            .xl
+                                            .make(),
+                                        Container().w(12),
+                                        "3999"
+                                            .text
+                                            .color(Colors.grey)
+                                            .textStyle(
+                                                GoogleFonts.notoSansDevanagari(
+                                                    decoration: TextDecoration
+                                                        .lineThrough))
+                                            .xl
+                                            .make()
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                Container().w(5),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        "Delhi Police 2023"
+                                            .text
+                                            .black
+                                            .normal
+                                            .textStyle(
+                                                GoogleFonts.notoSansDevanagari(
+                                                    fontWeight:
+                                                        FontWeight.w500))
+                                            .make(),
+                                        Container().w(5),
+                                        Container(
+                                          padding: const EdgeInsets.all(2),
+                                          decoration: const BoxDecoration(
+                                            color: Color(0x269d00ff),
+                                          ),
+                                          child: "English|Hindi"
+                                              .text
+                                              .textStyle(GoogleFonts
+                                                  .notoSansDevanagari(
+                                                fontWeight: FontWeight.w600,
+                                              ))
+                                              .color(Colors.purple)
+                                              .xs
+                                              .make(),
+                                        )
+                                      ],
+                                    ),
+                                    const RecommendedText(
+                                      image: HomePage.target,
+                                      text: "Targeted Batch for Delhi Police",
+                                    ),
+                                    const RecommendedText(
+                                      image: HomePage.calendar,
+                                      text:
+                                          "Start on 20 Sep 2023 | End on 26 \n Nov 2023",
+                                    ),
+                                    const RecommendedText(
+                                      image: HomePage.star,
+                                      text: "COURSE DURATION:6 Months",
+                                    ),
+                                    Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        ElevatedButton(
+                                            onPressed: () {},
+                                            style: ElevatedButton.styleFrom(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              backgroundColor: const Color(
+                                                  0xbf9603f2), // Set the background color
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(20.0),
+                                                // Adjust the radius to make it rounded
+                                              ),
+                                              minimumSize: const Size(70, 25),
+                                            ),
+                                            child: "View Details"
+                                                .text
+                                                .white
+                                                .xs
+                                                .make()),
+                                        Container().w(5),
+                                        ElevatedButton(
+                                            onPressed: () {},
+                                            style: ElevatedButton.styleFrom(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              backgroundColor: Colors.white,
+                                              // Set the background color
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(20.0),
+                                                // Adjust the radius to make it rounded
+                                              ),
+                                              minimumSize: const Size(70, 25),
+                                              side: const BorderSide(
+                                                color: Color(
+                                                    0xbf9603f2), // Set the border color to purple
+                                                width: 2.0,
+                                              ),
+                                            ),
+                                            child: "Buy Now"
+                                                .text
+                                                .color(const Color(0xbf9603f2))
+                                                .xs
+                                                .make()),
+                                        Container().w(10),
+                                        Image.asset(HomePage.share).w(30)
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                    ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.all(8.0),
+                          backgroundColor: Colors.white,
+                          // Set the background color
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                            // Adjust the radius to make it rounded
+                          ),
+                          minimumSize: Size(wid * 0.9, 40),
+                          side: const BorderSide(
+                            color: Color(
+                                0xbf9603f2), // Set the border color to purple
+                            width: 2.0,
+                          ),
+                        ),
+                        child: "Explore More"
+                            .text
+                            .color(const Color(0xbf9603f2))
+                            .xs
+                            .make()),
+                  ],
+                ),
+              ),
+              Container().h(10),
+              Container(
+                width: wid *
+                    0.95, // Set the width to 95% of the available width (based on wid variable)
+                height: hei *
+                    0.2, // Set the height to 40% of the available height (based on hei variable)
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(12), // Rounded top-left corner
+                    topRight: Radius.circular(12), // Rounded top-right corner
+                  ),
+                  color: Color(
+                      0x269d00ff), // Set the background color with an alpha value
+                ),
+                child: Column(
+                  children: [
+                    Container().h(10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            ElevatedButton(
+                                onPressed: () {},
+                                style: ElevatedButton.styleFrom(
+                                  padding: const EdgeInsets.all(8.0),
+                                  backgroundColor: const Color(
+                                      0xbf9603f2), // Set the background color
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20.0),
+                                    // Adjust the radius to make it rounded
+                                  ),
+                                  minimumSize: Size(wid * 0.55, 30),
+                                ),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Image.asset(HomePage.gift).w(wid * 0.08),
+                                    "  REFER AND EARN".text.white.lg.make(),
+                                  ],
+                                )),
+                            Container().h(10),
+                            "Learn Together. Earn Together"
+                                .text
+                                .black
+                                .bold
+                                .xl
+                                .make()
+                          ],
+                        ),
+                        Image.asset(HomePage.coins).w(wid * 0.2)
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 4, horizontal: 9),
+                      child:
+                          "Invite your Friends to join Sd Campus. You get upto 20% of the purchase amount as Paytm cashback on your friend’s purchase. Your friends get upto 10% discount on their purchase with your code"
+                              .text
+                              .align(TextAlign.start)
+                              .black
+                              .sm
+                              .make(),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                width: wid *
+                    0.95, // Set the width to 95% of the available width (based on wid variable)
+                height: hei *
+                    0.1, // Set the height to 40% of the available height (based on hei variable)
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(12), // Rounded top-left corner
+                    bottomRight:
+                        Radius.circular(12), // Rounded top-right corner
+                  ),
+                  color: Colors
+                      .white, // Set the background color with an alpha value
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      width: wid * 0.35,
+                      height: hei * 0.05,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: const Color(0x269d00ff),
+                      ),
+                      child: DottedBorder(
+                        dashPattern: const [6, 3, 2, 3],
+                        color: Colors.purple,
+                        borderType: BorderType.RRect,
+                        radius: const Radius.circular(12),
+                        padding: const EdgeInsets.all(6),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            contentPadding: const EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 8),
+                            hintText: 'SDV23Z',
+                            hintStyle: const TextStyle(
+                                color: Colors.purple,
+                                fontWeight: FontWeight.w500),
+                            focusedBorder: InputBorder.none,
+                            enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(
+                                    25.0), // Adjust the radius for rounded corners
+                                borderSide: BorderSide.none),
+
+                            suffixIcon: Image.asset(HomePage.copy)
+                                .w(10), // Replace with the path to your image
+                          ),
+                        ),
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.all(8.0),
+                        backgroundColor:
+                            const Color(0xbf9603f2), // Set the background color
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                          // Adjust the radius to make it rounded
+                        ),
+                        minimumSize: Size(wid * 0.4, 35),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Image.asset(ReferEarn.whatsapp).w(wid * 0.04),
+                          "  Invite Your Friends".text.white.sm.make(),
+                        ],
+                      ),
+                    ),
+                    Image.asset(HomePage.share).w(30)
+                  ],
+                ),
+              ),
+              Container().h(10),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: "Join Us on"
+                    .text
+                    .xl
+                    .textStyle(GoogleFonts.notoSansDevanagari(
+                      fontWeight: FontWeight.w500,
+                    ))
+                    .make(),
+              ).pOnly(
+                left: 7,
+              ),
+              Container().h(10),
+              Container(
+                height: hei * 0.08,
+                width: wid,
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                ),
+                child: const Align(
+                  alignment: Alignment.center,
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 8),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Shortcuts(
+                          image: HomePage.facebook,
+                        ),
+                        Shortcuts(
+                          image: HomePage.insta,
+                        ),
+                        Shortcuts(
+                          image: HomePage.yt,
+                        ),
+                        Shortcuts(
+                          image: HomePage.telegram,
+                        ),
+                        Shortcuts(
+                          image: HomePage.linkedin,
+                        ),
+                        Shortcuts(
+                          image: HomePage.x,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
+    );
+  }
+}
+
+class RecommendedText extends StatelessWidget {
+  const RecommendedText({
+    super.key,
+    required this.image,
+    required this.text,
+  });
+  final String image;
+  final String text;
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 3),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Image.asset(image).w(15),
+          Container().w(7),
+          text.text
+              .textStyle(GoogleFonts.notoSansDevanagari(color: Colors.black))
+              .xs
+              .make()
+        ],
+      ),
+    );
+  }
+}
+
+class Shortcuts extends StatelessWidget {
+  const Shortcuts({
+    super.key,
+    required this.image,
+    this.title = "",
+  });
+  final String image;
+  final String? title;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Image.asset(
+          image,
+        ).w10(context),
+        Container().h(3),
+        if (title != "")
+          title!.text
+              .textStyle(GoogleFonts.notoSansDevanagari(
+                fontWeight: FontWeight.w500,
+                fontSize: 6,
+              ))
+              .make()
+      ],
     );
   }
 }

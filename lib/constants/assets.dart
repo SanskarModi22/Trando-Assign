@@ -25,6 +25,9 @@ class HomePage {
   static const drawer = '$homePath/drawer.png';
   static const timer = '$homePath/timer.png';
   static const bell = '$homePath/bell.png';
+  static const calendar = '$homePath/calendar.png';
+  static const star = '$homePath/star.png';
+  static const target = '$homePath/target.png';
 }
 
 class Menu {
