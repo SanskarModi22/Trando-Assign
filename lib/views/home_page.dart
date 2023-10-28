@@ -379,30 +379,33 @@ class Home extends StatelessWidget {
                         color: const Color(0x269d00ff),
                       ),
                       child: DottedBorder(
-                        dashPattern: const [6, 3, 2, 3],
-                        color: Colors.purple,
-                        borderType: BorderType.RRect,
-                        radius: const Radius.circular(12),
-                        padding: const EdgeInsets.all(6),
-                        child: TextField(
-                          decoration: InputDecoration(
-                            contentPadding: const EdgeInsets.symmetric(
-                                vertical: 10, horizontal: 8),
-                            hintText: 'SDV23Z',
-                            hintStyle: const TextStyle(
+                          dashPattern: const [6, 3, 2, 3],
+                          color: Colors.purple,
+                          borderType: BorderType.RRect,
+                          radius: const Radius.circular(12),
+                          padding: const EdgeInsets.all(3),
+                          child: TextField(
+                            style: const TextStyle(
+                                color: Colors.black, fontSize: 15),
+                            decoration: InputDecoration(
+                              contentPadding: const EdgeInsets.symmetric(
+                                  vertical: 0,
+                                  horizontal: 12), // Adjust padding as needed
+                              hintText: 'SDV23Z',
+                              hintStyle: const TextStyle(
                                 color: Colors.purple,
-                                fontWeight: FontWeight.w500),
-                            focusedBorder: InputBorder.none,
-                            enabledBorder: OutlineInputBorder(
+                                fontWeight: FontWeight.w500,
+                              ),
+                              focusedBorder: InputBorder.none,
+                              enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(
                                     25.0), // Adjust the radius for rounded corners
-                                borderSide: BorderSide.none),
-
-                            suffixIcon: Image.asset(HomePage.copy)
-                                .w(10), // Replace with the path to your image
-                          ),
-                        ),
-                      ),
+                                borderSide: BorderSide.none,
+                              ),
+                              suffixIcon: Image.asset(HomePage.copy)
+                                  .w(20), // Adjust the size as needed
+                            ),
+                          )),
                     ),
                     CustomElevatedButton(
                       buttonText: "  Invite Your Friends",

@@ -164,11 +164,11 @@ class ReferAndEarn extends StatelessWidget {
                           color: Colors.purple,
                           borderType: BorderType.RRect,
                           radius: const Radius.circular(12),
-                          padding: const EdgeInsets.all(6),
+                          padding: const EdgeInsets.all(3),
                           child: TextField(
                             decoration: InputDecoration(
                               contentPadding: const EdgeInsets.symmetric(
-                                  vertical: 10, horizontal: 8),
+                                  vertical: 0, horizontal: 8),
                               hintText: 'SDV23Z',
                               hintStyle: const TextStyle(
                                   color: Colors.purple,
