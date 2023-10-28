@@ -43,6 +43,7 @@ class Menu {
   static const share = '$menuPath/share.png';
   static const support = '$menuPath/support.png';
   static const wallet = '$menuPath/wallet.png';
+  static const orders = '$menuPath/orders.png';
 }
 
 class MyWallet {

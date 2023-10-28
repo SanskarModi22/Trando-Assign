@@ -6,6 +6,8 @@ import 'package:trando_assign/components/grid_view.dart';
 import 'package:trando_assign/components/recommended_text.dart';
 import 'package:trando_assign/components/rounded_button.dart';
 import 'package:trando_assign/constants/assets.dart';
+import 'package:trando_assign/views/drawer.dart';
+import 'package:trando_assign/views/my_wallet.dart';
 import 'package:trando_assign/views/refer_and_earn.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -27,7 +29,7 @@ class Home extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color.fromRGBO(245, 245, 245, 1),
-        drawer: const Drawer(),
+        drawer: const CustomDrawer(),
         appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 3,
