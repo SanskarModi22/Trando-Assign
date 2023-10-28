@@ -312,7 +312,6 @@ class ReferAndEarn extends StatelessWidget {
             width: wid * 0.95, // Set the desired width here
             child: const ExpansionTile(
               iconColor: Colors.black,
-              shape: CircleBorder(side: BorderSide(style: BorderStyle.solid)),
               collapsedIconColor: Colors.black,
               backgroundColor: Colors.transparent,
               title: Text(
@@ -338,7 +337,7 @@ class ReferAndEarn extends StatelessWidget {
               ],
             ),
           ),
-          Container().h(10),
+          Container().h(20),
         ],
       )),
     ));
