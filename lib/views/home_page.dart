@@ -2,20 +2,57 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:trando_assign/components/custom_elevated_button.dart';
+import 'package:trando_assign/components/filled_button.dart';
 import 'package:trando_assign/components/grid_view.dart';
 import 'package:trando_assign/components/recommended_text.dart';
 import 'package:trando_assign/components/rounded_button.dart';
 import 'package:trando_assign/constants/assets.dart';
 import 'package:trando_assign/views/drawer.dart';
-import 'package:trando_assign/views/my_wallet.dart';
 import 'package:trando_assign/views/refer_and_earn.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
 
   @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  int _selectedIndex = 2;
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => navigations[_selectedIndex],
+        ),
+      );
+    });
+  }
+
+  List<dynamic> navigations = [
+    const Home(),
+    const ReferAndEarn(),
+    const Home(),
+    const Home()
+  ];
+  @override
   Widget build(BuildContext context) {
+    int selectedIndex = 0; //
+    void _onItemTapped(int index) {
+      setState(() {
+        selectedIndex = index;
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => navigations[selectedIndex],
+          ),
+        );
+      });
+    }
+
     var wid = MediaQuery.of(context).size.width;
     var hei = MediaQuery.of(context).size.height;
     List<String> topics = [
@@ -26,10 +63,35 @@ class Home extends StatelessWidget {
       "Indian History",
       "  Polity and \n Governance"
     ];
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color.fromRGBO(245, 245, 245, 1),
         drawer: const CustomDrawer(),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: ImageIcon(AssetImage(HomePage.home)),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: ImageIcon(AssetImage(HomePage.courses)),
+              label: 'Courses',
+            ),
+            BottomNavigationBarItem(
+              icon: ImageIcon(AssetImage(HomePage.tests)),
+              label: 'Tests',
+            ),
+            BottomNavigationBarItem(
+              icon: ImageIcon(AssetImage(HomePage.schedule)),
+              label: 'My Schedule',
+            ),
+          ],
+          currentIndex: selectedIndex, //New
+          onTap: _onItemTapped,
+          selectedItemColor: const Color(0xbf9603f2),
+        ),
         appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 3,
@@ -193,7 +255,7 @@ class Home extends StatelessWidget {
                                             )
                                             .xl
                                             .make(),
-                                        Container().w(12),
+                                        Container().w(18),
                                         "3999"
                                             .text
                                             .color(Colors.grey)
@@ -260,7 +322,11 @@ class Home extends StatelessWidget {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
-                                        const FilledButton(),
+                                        const FilledButtonWidget(
+                                          text: "View Details",
+                                          w: 70,
+                                          h: 25,
+                                        ),
                                         Container().w(5),
                                         const RoundedButton(
                                           h: 25,
@@ -439,9 +505,10 @@ class Home extends StatelessWidget {
               ),
               Container().h(10),
               Container(
-                height: hei * 0.08,
-                width: wid,
-                decoration: const BoxDecoration(
+                height: hei * 0.07,
+                width: wid * 0.95,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
                   color: Colors.white,
                 ),
                 child: const Align(
@@ -475,6 +542,7 @@ class Home extends StatelessWidget {
                   ),
                 ),
               ),
+              Container().h(10),
             ],
           ),
         ),
@@ -508,27 +576,5 @@ class Shortcuts extends StatelessWidget {
               .make()
       ],
     );
-  }
-}
-
-class FilledButton extends StatelessWidget {
-  const FilledButton({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-        onPressed: () {},
-        style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.all(8.0),
-          backgroundColor: const Color(0xbf9603f2), // Set the background color
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20.0),
-            // Adjust the radius to make it rounded
-          ),
-          minimumSize: const Size(70, 25),
-        ),
-        child: "View Details".text.white.xs.make());
   }
 }

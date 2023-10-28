@@ -95,7 +95,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
   Container _buildLogoutItem() {
     return Container(
       margin: const EdgeInsets.all(18),
-      height: 40,
+      height: 45,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         color: Colors.white,
