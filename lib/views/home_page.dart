@@ -218,7 +218,7 @@ class _HomeState extends State<Home> {
                   children: [
                     SizedBox(
                       width: wid * 0.95,
-                      height: hei * 0.53,
+                      height: hei * 0.6,
                       child: ListView.builder(
                         physics: const NeverScrollableScrollPhysics(),
                         itemCount: 3,
