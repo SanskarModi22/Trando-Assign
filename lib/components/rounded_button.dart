@@ -7,10 +7,13 @@ class RoundedButton extends StatelessWidget {
     required this.text,
     required this.w,
     required this.h,
+    this.fontSize = 14,
   });
   final String text;
   final double w;
   final double h;
+  final double? fontSize;
+
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -29,6 +32,9 @@ class RoundedButton extends StatelessWidget {
             width: 2.0,
           ),
         ),
-        child: text.text.color(const Color(0xbf9603f2)).xs.make());
+        child: Text(
+          text,
+          style: TextStyle(color: const Color(0xbf9603f2), fontSize: fontSize),
+        ));
   }
 }

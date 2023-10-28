@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class FilledButton extends StatelessWidget {
-  const FilledButton({
+class FilledButtonWidget extends StatelessWidget {
+  const FilledButtonWidget({
     super.key,
+    required this.text,
+    this.w = 70,
+    this.h = 25,
   });
-
+  final String text;
+  final double? w;
+  final double? h;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -17,8 +22,8 @@ class FilledButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(20.0),
             // Adjust the radius to make it rounded
           ),
-          minimumSize: const Size(70, 25),
+          minimumSize: Size(w!, h!),
         ),
-        child: "View Details".text.white.xs.make());
+        child: text.text.white.xs.make());
   }
 }

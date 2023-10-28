@@ -56,6 +56,7 @@ class ReferEarn {
   static const referPath = 'assets/refer_earn';
 
   static const campaign = '$referPath/campaign.png';
-  static const group = '$referPath/group.png';
+  static const group = '$referPath/group_add.png';
   static const whatsapp = '$referPath/whatsapp.png';
+  static const girl = '$referPath/girl.png';
 }

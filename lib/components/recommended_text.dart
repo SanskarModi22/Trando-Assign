@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class RecommendedText extends StatelessWidget {
@@ -7,9 +6,13 @@ class RecommendedText extends StatelessWidget {
     super.key,
     required this.image,
     required this.text,
+    this.imageSize = 15,
+    this.fontSize = 12,
   });
   final String image;
   final String text;
+  final double? imageSize;
+  final double? fontSize;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -17,12 +20,12 @@ class RecommendedText extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Image.asset(image).w(15),
+          Image.asset(image).w(imageSize!),
           Container().w(7),
-          text.text
-              .textStyle(GoogleFonts.notoSansDevanagari(color: Colors.black))
-              .xs
-              .make()
+          Text(
+            text,
+            style: TextStyle(color: Colors.black, fontSize: fontSize!),
+          )
         ],
       ),
     );

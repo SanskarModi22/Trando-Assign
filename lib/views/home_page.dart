@@ -6,6 +6,7 @@ import 'package:trando_assign/components/grid_view.dart';
 import 'package:trando_assign/components/recommended_text.dart';
 import 'package:trando_assign/components/rounded_button.dart';
 import 'package:trando_assign/constants/assets.dart';
+import 'package:trando_assign/views/refer_and_earn.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class Home extends StatelessWidget {
@@ -229,7 +230,7 @@ class Home extends StatelessWidget {
                                               .text
                                               .textStyle(GoogleFonts
                                                   .notoSansDevanagari(
-                                                fontWeight: FontWeight.w600,
+                                                fontWeight: FontWeight.w500,
                                               ))
                                               .color(Colors.purple)
                                               .xs
@@ -240,15 +241,18 @@ class Home extends StatelessWidget {
                                     const RecommendedText(
                                       image: HomePage.target,
                                       text: "Targeted Batch for Delhi Police",
+                                      fontSize: 10,
                                     ),
                                     const RecommendedText(
                                       image: HomePage.calendar,
                                       text:
                                           "Start on 20 Sep 2023 | End on 26 \n Nov 2023",
+                                      fontSize: 10,
                                     ),
                                     const RecommendedText(
                                       image: HomePage.star,
                                       text: "COURSE DURATION:6 Months",
+                                      fontSize: 10,
                                     ),
                                     Row(
                                       crossAxisAlignment:
@@ -260,6 +264,7 @@ class Home extends StatelessWidget {
                                           h: 25,
                                           w: 70,
                                           text: "Buy Now",
+                                          fontSize: 12,
                                         ),
                                         Container().w(10),
                                         Image.asset(HomePage.share).w(30)
@@ -277,6 +282,7 @@ class Home extends StatelessWidget {
                       h: 40,
                       w: wid * 0.9,
                       text: "Explore More",
+                      fontSize: 16,
                     ),
                   ],
                 ),
@@ -308,7 +314,13 @@ class Home extends StatelessWidget {
                             CustomElevatedButton(
                               buttonText: "  REFER AND EARN",
                               imagePath: HomePage.gift,
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const ReferAndEarn()));
+                              },
                               borderRadius: 20,
                               buttonColor: const Color(0xbf9603f2),
                               buttonHeight: 30,
