@@ -50,6 +50,7 @@ class MyWallet {
 
   static const help = '$walletPath/help.png';
   static const wallet = '$walletPath/wallet.png';
+  static const arrow = '$walletPath/arrow.png';
 }
 
 class ReferEarn {
