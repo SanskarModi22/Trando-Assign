@@ -1,10 +1,9 @@
-import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:trando_assign/components/custom_elevated_button.dart';
-import 'package:trando_assign/components/filled_button.dart';
 import 'package:trando_assign/components/grid_view.dart';
-import 'package:trando_assign/components/recommended_text.dart';
+import 'package:trando_assign/components/recommended_card.dart';
+import 'package:trando_assign/components/refer_code.dart';
 import 'package:trando_assign/components/rounded_button.dart';
 import 'package:trando_assign/constants/assets.dart';
 import 'package:trando_assign/views/drawer.dart';
@@ -205,7 +204,7 @@ class _HomeState extends State<Home> {
                     ))
                     .make(),
               ).pOnly(
-                left: 7,
+                left: 10,
               ),
               Container().h(10),
               Container(
@@ -225,123 +224,12 @@ class _HomeState extends State<Home> {
                         physics: const NeverScrollableScrollPhysics(),
                         itemCount: 3,
                         itemBuilder: (context, index) {
-                          return Container(
-                            padding: const EdgeInsets.all(6),
-                            margin: const EdgeInsets.all(6),
-                            height: hei * 0.2,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12),
-                                color: Colors.white),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Image.asset(HomePage.delhiPolice)
-                                        .w(wid * 0.33)
-                                        .h(hei * 0.1),
-                                    Container().h(14),
-                                    Row(
-                                      children: [
-                                        "₹1,999"
-                                            .text
-                                            .purple500
-                                            .textStyle(
-                                              GoogleFonts.notoSansDevanagari(
-                                                fontWeight: FontWeight.w500,
-                                              ),
-                                            )
-                                            .xl
-                                            .make(),
-                                        Container().w(18),
-                                        "3999"
-                                            .text
-                                            .color(Colors.grey)
-                                            .textStyle(
-                                                GoogleFonts.notoSansDevanagari(
-                                                    decoration: TextDecoration
-                                                        .lineThrough))
-                                            .xl
-                                            .make()
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                Container().w(5),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        "Delhi Police 2023"
-                                            .text
-                                            .black
-                                            .normal
-                                            .textStyle(
-                                                GoogleFonts.notoSansDevanagari(
-                                                    fontWeight:
-                                                        FontWeight.w500))
-                                            .make(),
-                                        Container().w(5),
-                                        Container(
-                                          padding: const EdgeInsets.all(2),
-                                          decoration: const BoxDecoration(
-                                            color: Color(0x269d00ff),
-                                          ),
-                                          child: "English|Hindi"
-                                              .text
-                                              .textStyle(GoogleFonts
-                                                  .notoSansDevanagari(
-                                                fontWeight: FontWeight.w500,
-                                              ))
-                                              .color(Colors.purple)
-                                              .xs
-                                              .make(),
-                                        )
-                                      ],
-                                    ),
-                                    const RecommendedText(
-                                      image: HomePage.target,
-                                      text: "Targeted Batch for Delhi Police",
-                                      fontSize: 10,
-                                    ),
-                                    const RecommendedText(
-                                      image: HomePage.calendar,
-                                      text:
-                                          "Start on 20 Sep 2023 | End on 26 \n Nov 2023",
-                                      fontSize: 10,
-                                    ),
-                                    const RecommendedText(
-                                      image: HomePage.star,
-                                      text: "COURSE DURATION:6 Months",
-                                      fontSize: 10,
-                                    ),
-                                    Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        const FilledButtonWidget(
-                                          text: "View Details",
-                                          w: 70,
-                                          h: 25,
-                                        ),
-                                        Container().w(5),
-                                        const RoundedButton(
-                                          h: 25,
-                                          w: 70,
-                                          text: "Buy Now",
-                                          fontSize: 12,
-                                        ),
-                                        Container().w(10),
-                                        Image.asset(HomePage.share).w(30)
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
+                          return RecommendedCard(
+                            hei: hei,
+                            wid: wid,
+                            examName: "Delhi Police 2023",
+                            initialPrice: "3999",
+                            price: "₹1,999",
                           );
                         },
                       ),
@@ -372,41 +260,45 @@ class _HomeState extends State<Home> {
                 child: Column(
                   children: [
                     Container().h(10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            CustomElevatedButton(
-                              buttonText: "  REFER AND EARN",
-                              imagePath: HomePage.gift,
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const ReferAndEarn()));
-                              },
-                              borderRadius: 20,
-                              buttonColor: const Color(0xbf9603f2),
-                              buttonHeight: 30,
-                              buttonWidth: wid * 0.55,
-                              fontSize: 18,
-                              imageHeight: wid * 0.08,
-                            ),
-                            Container().h(10),
-                            "Learn Together. Earn Together"
-                                .text
-                                .black
-                                .bold
-                                .xl
-                                .make()
-                          ],
-                        ),
-                        Image.asset(HomePage.coins).w(wid * 0.2)
-                      ],
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              CustomElevatedButton(
+                                buttonText: "  REFER AND EARN",
+                                imagePath: HomePage.gift,
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const ReferAndEarn()));
+                                },
+                                borderRadius: 20,
+                                buttonColor: const Color(0xbf9603f2),
+                                buttonHeight: 30,
+                                buttonWidth: wid * 0.55,
+                                fontSize: 18,
+                                imageHeight: wid * 0.08,
+                              ),
+                              Container().h(10),
+                              "Learn Together. Earn Together"
+                                  .text
+                                  .black
+                                  .bold
+                                  .xl
+                                  .make()
+                            ],
+                          ),
+                          Image.asset(HomePage.coins).w(wid * 0.2)
+                        ],
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
@@ -439,42 +331,7 @@ class _HomeState extends State<Home> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Container(
-                      width: wid * 0.35,
-                      height: hei * 0.05,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        color: const Color(0x269d00ff),
-                      ),
-                      child: DottedBorder(
-                          dashPattern: const [6, 3, 2, 3],
-                          color: Colors.purple,
-                          borderType: BorderType.RRect,
-                          radius: const Radius.circular(12),
-                          padding: const EdgeInsets.all(3),
-                          child: TextField(
-                            style: const TextStyle(
-                                color: Colors.black, fontSize: 15),
-                            decoration: InputDecoration(
-                              contentPadding: const EdgeInsets.symmetric(
-                                  vertical: 0,
-                                  horizontal: 12), // Adjust padding as needed
-                              hintText: 'SDV23Z',
-                              hintStyle: const TextStyle(
-                                color: Colors.purple,
-                                fontWeight: FontWeight.w500,
-                              ),
-                              focusedBorder: InputBorder.none,
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(
-                                    25.0), // Adjust the radius for rounded corners
-                                borderSide: BorderSide.none,
-                              ),
-                              suffixIcon: Image.asset(HomePage.copy)
-                                  .w(20), // Adjust the size as needed
-                            ),
-                          )),
-                    ),
+                    ReferCode(wid: wid, hei: hei),
                     CustomElevatedButton(
                       buttonText: "  Invite Your Friends",
                       imagePath: ReferEarn.whatsapp,
@@ -484,7 +341,7 @@ class _HomeState extends State<Home> {
                       buttonHeight: 35,
                       buttonWidth: wid * 0.4,
                       fontSize: 14,
-                      imageHeight: wid * 0.04,
+                      imageHeight: hei * 0.04,
                     ),
                     Image.asset(HomePage.share).w(30)
                   ],
@@ -501,7 +358,7 @@ class _HomeState extends State<Home> {
                     ))
                     .make(),
               ).pOnly(
-                left: 7,
+                left: 10,
               ),
               Container().h(10),
               Container(

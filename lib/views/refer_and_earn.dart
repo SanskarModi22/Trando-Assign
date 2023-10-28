@@ -1,8 +1,8 @@
-import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:trando_assign/components/filled_button.dart';
 import 'package:trando_assign/components/recommended_text.dart';
+import 'package:trando_assign/components/refer_code.dart';
 import 'package:trando_assign/components/rounded_button.dart';
 import 'package:trando_assign/constants/assets.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -168,39 +168,7 @@ class ReferAndEarn extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Container(
-                        width: wid * 0.35,
-                        height: hei * 0.05,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: const Color(0x269d00ff),
-                        ),
-                        child: DottedBorder(
-                          dashPattern: const [6, 3, 2, 3],
-                          color: Colors.purple,
-                          borderType: BorderType.RRect,
-                          radius: const Radius.circular(12),
-                          padding: const EdgeInsets.all(3),
-                          child: TextField(
-                            decoration: InputDecoration(
-                              contentPadding: const EdgeInsets.symmetric(
-                                  vertical: 0, horizontal: 8),
-                              hintText: 'SDV23Z',
-                              hintStyle: const TextStyle(
-                                  color: Colors.purple,
-                                  fontWeight: FontWeight.w500),
-                              focusedBorder: InputBorder.none,
-                              enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(
-                                      25.0), // Adjust the radius for rounded corners
-                                  borderSide: BorderSide.none),
-
-                              suffixIcon: Image.asset(HomePage.copy)
-                                  .w(10), // Replace with the path to your image
-                            ),
-                          ),
-                        ),
-                      ),
+                      ReferCode(wid: wid, hei: hei),
                       CustomElevatedButton(
                         buttonText: "  Invite Your Friends",
                         imagePath: ReferEarn.whatsapp,
@@ -210,7 +178,7 @@ class ReferAndEarn extends StatelessWidget {
                         buttonHeight: 35,
                         buttonWidth: wid * 0.4,
                         fontSize: 14,
-                        imageHeight: wid * 0.04,
+                        imageHeight: hei * 0.04,
                       ),
                       Image.asset(HomePage.share).w(30)
                     ],
@@ -286,6 +254,7 @@ class ReferAndEarn extends StatelessWidget {
                   w: wid * 0.85,
                   h: 35,
                 ),
+                Container().h(10),
                 "Terms & Conditions"
                     .text
                     .xs
@@ -339,25 +308,24 @@ class ReferAndEarn extends StatelessWidget {
             ),
 
             width: wid * 0.95, // Set the desired width here
-            child: const ExpansionTile(
+            child: ExpansionTile(
               iconColor: Colors.black,
               collapsedIconColor: Colors.black,
               backgroundColor: Colors.transparent,
               title: Text(
                 'Term and Conditions',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: GoogleFonts.notoSansDevanagari(
+                    color: Colors.black,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold),
                 textAlign: TextAlign.start,
               ),
               children: [
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Text(
                     'Paytm Cashback will be credited to your registered mobile number + 91xxxxxxxxxx . You may change your number to get cashback in another mobile number. ',
-                    style: TextStyle(fontSize: 15),
+                    style: GoogleFonts.notoSansDevanagari(fontSize: 15),
                     maxLines: 4,
                     softWrap: true,
                     textAlign: TextAlign.start,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:trando_assign/constants/assets.dart';
 import 'package:trando_assign/views/my_wallet.dart';
 import 'package:trando_assign/views/refer_and_earn.dart';
@@ -35,9 +36,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 children: [
                   Image.asset(Menu.avatar).w(50),
                   Container().w(10),
-                  const Text(
+                  Text(
                     'Pratik Gaur',
-                    style: TextStyle(
+                    style: GoogleFonts.notoSansDevanagari(
                       color: Colors.white,
                       fontSize: 24,
                     ),
@@ -67,7 +68,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
     return ListTile(
       focusColor: _selectedItem == index ? const Color(0xbf9603f2) : null,
       leading: ImageIcon(AssetImage(iconAsset)),
-      title: Text(title),
+      title: Text(
+        title,
+        style: GoogleFonts.notoSansDevanagari(fontWeight: FontWeight.w500),
+      ),
       onTap: () {
         setState(() {
           _selectedItem = index;
@@ -82,7 +86,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
     return ListTile(
       focusColor: _selectedItem == index ? const Color(0xbf9603f2) : null,
       leading: ImageIcon(AssetImage(iconAsset)),
-      title: Text(title),
+      title: Text(
+        title,
+        style: GoogleFonts.notoSansDevanagari(fontWeight: FontWeight.w500),
+      ),
       onTap: () {
         setState(() {
           _selectedItem = index;
