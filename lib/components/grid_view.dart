@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trando_assign/constants/assets.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class GridViewWidget extends StatelessWidget {
   final double wid;
@@ -14,7 +15,7 @@ class GridViewWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(8),
       width: wid * 0.95,
-      height: hei * 0.3,
+      height: hei * 0.33,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         color: const Color(0x269d00ff),
@@ -35,12 +36,16 @@ class GridViewWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Image.asset(
-                    HomePage.delhiPolice, // Replace with your image asset path
-                    width: wid * 0.27,
-                  ),
+                  Align(
+                    alignment: Alignment.topCenter,
+                    child: Image.asset(
+                      HomePage
+                          .delhiPolice, // Replace with your image asset path
+                      width: wid * 0.27,
+                    ),
+                  ).pSymmetric(v: 6, h: 1),
                   Text(
                     topics[index],
                     style: const TextStyle(

@@ -102,7 +102,7 @@ class ReferAndEarn extends StatelessWidget {
           ),
           Container(
             width: wid,
-            height: hei * 0.5,
+            // height: hei * 0.52,
             decoration: const BoxDecoration(
               color: Color.fromARGB(255, 242, 231, 248),
               // gradient: LinearGradient(
@@ -175,10 +175,10 @@ class ReferAndEarn extends StatelessWidget {
                         onPressed: () {},
                         borderRadius: 20,
                         buttonColor: const Color(0xbf9603f2),
-                        buttonHeight: 35,
+                        buttonHeight: 32,
                         buttonWidth: wid * 0.4,
                         fontSize: 14,
-                        imageHeight: hei * 0.04,
+                        imageHeight: hei * 0.035,
                       ),
                       Image.asset(HomePage.share).w(30)
                     ],
@@ -259,7 +259,8 @@ class ReferAndEarn extends StatelessWidget {
                     .text
                     .xs
                     .textStyle(GoogleFonts.notoSansDevanagari())
-                    .make()
+                    .make(),
+                Container().h(10),
               ],
             ),
           ),
@@ -334,7 +335,7 @@ class ReferAndEarn extends StatelessWidget {
               ],
             ),
           ),
-          Container().h(20),
+          Container().h(hei * 0.12),
         ],
       )),
     ));

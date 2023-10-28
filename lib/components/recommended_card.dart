@@ -27,11 +27,11 @@ class RecommendedCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(6),
       margin: const EdgeInsets.all(6),
-      height: hei * 0.2,
+      // height: hei * 0.2,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12), color: Colors.white),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Column(
@@ -49,7 +49,7 @@ class RecommendedCard extends StatelessWidget {
                       )
                       .xl
                       .make(),
-                  Container().w(18),
+                  Container().w(20),
                   initialPrice!.text
                       .color(Colors.grey)
                       .textStyle(GoogleFonts.notoSansDevanagari(
@@ -60,23 +60,22 @@ class RecommendedCard extends StatelessWidget {
               ),
             ],
           ),
-          Container().w(5),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   examName!.text.black.normal
                       .textStyle(GoogleFonts.notoSansDevanagari(
                           fontWeight: FontWeight.w500))
                       .make(),
-                  Container().w(5),
                   Container(
                     padding: const EdgeInsets.all(2),
                     decoration: const BoxDecoration(
                       color: Color(0x269d00ff),
                     ),
-                    child: "English|Hindi"
+                    child: "English | Hindi"
                         .text
                         .textStyle(GoogleFonts.notoSansDevanagari(
                           fontWeight: FontWeight.w500,
@@ -92,15 +91,72 @@ class RecommendedCard extends StatelessWidget {
                 text: "Targeted Batch for Delhi Police",
                 fontSize: 10,
               ),
-              const RecommendedText(
-                image: HomePage.calendar,
-                text: "Start on 20 Sep 2023 | End on 26 \n Nov 2023",
-                fontSize: 10,
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 3),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Image.asset(HomePage.calendar).w(15),
+                    Container().w(7),
+                    RichText(
+                      text: TextSpan(
+                        style: GoogleFonts.notoSansDevanagari(
+                          color: Colors.black,
+                          fontSize: 10,
+                        ),
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: 'Start on ',
+                            style: GoogleFonts.notoSansDevanagari(),
+                          ),
+                          TextSpan(
+                            text: ' 20 Sep 2023',
+                            style: GoogleFonts.notoSansDevanagari(
+                                fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(
+                            text: '| End on ',
+                            style: GoogleFonts.notoSansDevanagari(),
+                          ),
+                          TextSpan(
+                            text: ' \n 26 Nov 2023',
+                            style: GoogleFonts.notoSansDevanagari(
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              const RecommendedText(
-                image: HomePage.star,
-                text: "COURSE DURATION:6 Months",
-                fontSize: 10,
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 3),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Image.asset(HomePage.star).w(15),
+                    Container().w(7),
+                    RichText(
+                      text: TextSpan(
+                        style: GoogleFonts.notoSansDevanagari(
+                          color: Colors.black,
+                          fontSize: 10,
+                        ),
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: 'COURSE DURATION:',
+                            style: GoogleFonts.notoSansDevanagari(),
+                          ),
+                          TextSpan(
+                            text: ' 6 Months',
+                            style: GoogleFonts.notoSansDevanagari(
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,

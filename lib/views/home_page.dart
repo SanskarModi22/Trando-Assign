@@ -159,7 +159,6 @@ class _HomeState extends State<Home> {
                   .h24(context),
               Container().h(10),
               Container(
-                height: hei * 0.11,
                 width: wid,
                 decoration: const BoxDecoration(
                   color: Colors.white,
@@ -167,9 +166,9 @@ class _HomeState extends State<Home> {
                 child: const Align(
                   alignment: Alignment.center,
                   child: Padding(
-                    padding: EdgeInsets.only(top: 8),
+                    padding: EdgeInsets.symmetric(vertical: 8),
                     child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Shortcuts(
@@ -209,7 +208,7 @@ class _HomeState extends State<Home> {
               Container().h(10),
               Container(
                 width: wid * 0.95,
-                height: hei * 0.8,
+                // height: hei * 0.75,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                   color: const Color(0x26f4b44b),
@@ -219,7 +218,7 @@ class _HomeState extends State<Home> {
                   children: [
                     SizedBox(
                       width: wid * 0.95,
-                      height: hei * 0.7,
+                      height: hei * 0.53,
                       child: ListView.builder(
                         physics: const NeverScrollableScrollPhysics(),
                         itemCount: 3,
@@ -234,12 +233,14 @@ class _HomeState extends State<Home> {
                         },
                       ),
                     ),
+                    Container().h(10),
                     RoundedButton(
                       h: 40,
                       w: wid * 0.9,
                       text: "Explore More",
                       fontSize: 16,
                     ),
+                    Container().h(10),
                   ],
                 ),
               ),
@@ -247,8 +248,7 @@ class _HomeState extends State<Home> {
               Container(
                 width: wid *
                     0.95, // Set the width to 95% of the available width (based on wid variable)
-                height: hei *
-                    0.2, // Set the height to 40% of the available height (based on hei variable)
+                // Set the height to 40% of the available height (based on hei variable)
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(12), // Rounded top-left corner
@@ -285,7 +285,7 @@ class _HomeState extends State<Home> {
                                 buttonHeight: 30,
                                 buttonWidth: wid * 0.55,
                                 fontSize: 18,
-                                imageHeight: wid * 0.08,
+                                imageHeight: wid * 0.06,
                               ),
                               Container().h(10),
                               "Learn Together. Earn Together"
@@ -338,10 +338,10 @@ class _HomeState extends State<Home> {
                       onPressed: () {},
                       borderRadius: 20,
                       buttonColor: const Color(0xbf9603f2),
-                      buttonHeight: 35,
+                      buttonHeight: 28,
                       buttonWidth: wid * 0.4,
                       fontSize: 14,
-                      imageHeight: hei * 0.04,
+                      imageHeight: hei * 0.035,
                     ),
                     Image.asset(HomePage.share).w(30)
                   ],
@@ -362,7 +362,6 @@ class _HomeState extends State<Home> {
               ),
               Container().h(10),
               Container(
-                height: hei * 0.07,
                 width: wid * 0.95,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
